@@ -1,78 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-
-const cards = [
-	{
-		title: 'Automatización de Riego',
-		description: 'Optimiza el uso de agua y energía automatizando tus sistemas de riego con energía solar, asegurando eficiencia y sostenibilidad en cada cultivo.',
-		image: '/imgs/img-2.jpg',
-		iconName: 'aspersor'
-	},
-	{
-		title: 'Extracción de Agua',
-		description: 'Extrae agua de pozos de forma eficiente y económica con nuestras soluciones solares.',
-		image: '/imgs/img-25.jpg',
-		iconName: 'water-pump'
-	},
-	{
-		title: 'Energía Sostenible',
-		description: 'Reduce tus costos energéticos y aumenta la sostenibilidad de tu negocio con energía solar.',
-		image: '/imgs/img-21.jpg',
-		iconName: 'solar-panel'
-	},
-	{
-		title: 'Autoabastecimiento Energético',
-		description: 'Genera y almacena tu propia energía, asegurando la independencia energética de tu finca utilizando inversores y baterías.',
-		image: '/imgs/img-10.jpg',
-		iconName: 'battery'
-	},
-	{
-		title: 'Uso doméstico',
-		description: 'Autoabastece tu vivienda gracias a la energía solar y vierte en la red eléctrica el excedente de energía para ahorrar en tus facturas.',
-		image: '/imgs/img-17.jpg',
-		iconName: 'home-electricity'
-	},
-	{
-		title: 'Cualquier otra necesidad',
-		description: 'Flexibilidad para cualquier otro tipo de instalación: riegos, balsas, tuberías, iluminación, cámaras, detectores ...',
-		image: '/imgs/img-18.jpg',
-		iconName: 'adapt'
-	}
-]
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components'
+import { cards } from '../constants/cards';
 
 ---
 
 <Layout title="Helios">
-	<main class="mt-10mx-20 p-8 ">
-		<section class=" text-white py-20">
-			<div class="container mx-auto flex flex-col items-center justify-center text-center px-4">
+	<main class="p-8 ">
+		<section class=" text-white py-10 flex flex-col items-center">
+			<h1 class="text-2xl mt-10 lg:mt-0 text-center md:text-5xl lg:text-6xl font-bold leading-tight">
+				Energía Solar para Potenciar tu Agricultura
+			</h1>
+			<div class="container mx-auto mt-8 flex flex-col lg:flex-row  justify-center px-4 gap-4 ">
 				<!-- Título Principal -->
-				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-					Energía Solar para Potenciar tu Agricultura
-				</h1>
-				<!-- Subtítulo -->
-				<p class="mt-4 text-lg md:text-xl lg:text-2xl max-w-2xl">
-					Soluciones solares innovadoras para automatización de riego, extracción de agua y cualquier necesidad eléctrica en el campo.
-				</p>
-				<!-- Llamada a la Acción -->
-				<div class="mt-8">
-					<a href="#contacto" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out">
-						Solicita presupuesto
-					</a>
+				
+					
+					<Image src="/imgs/logo-full.jpg" alt="Imagen de un sol" width={675} height={10} class="max-w-screen-smflex rounded-t-lg transition-all duration-300" />
+				<div class="flex flex-col ">
+						<!-- Subtítulo -->
+						<p class="text-2xl md:text-xl lg:text-2xl max-w-2xl text-center">
+							Instalaciones solares innovadoras y automatizadas para <span class="text-camouflage-500">agilizar, facilitar, economizar y potenciar</span> tus actividades agrícolas,
+						</p>
+						<ul class="mt-4 flex flex-col space-y-4 p-6  rounded-lg shadow-lg">
+							<li >
+								<Icon name="solar-panel" class="icon text-camouflage-500" size={32}/>
+								Instalación de placas solares
+							</li>
+							<li >
+								<Icon name="aspersor" class="icon text-emerald-700" size={32}/>
+								Instalación del sistema de riego
+							</li>
+							<li >
+								<Icon name="water-pump" class="icon text-sky-500" size={32}/>
+								Instalación del sistema de bombeo de agua
+							</li>
+							<li>
+								<Icon name="battery" class="icon text-red-500" size={32}/>
+								Instalación de automatización de tareas
+							</li>
+							<li>
+								<Icon name="programming" class="icon text-green-500" size={32}/>
+								Instalación de inversores y baterías
+							</li>
+						</ul>
+						<div class="mt-8 flex flex-col items-center place-self-center">
+							<a href="#contacto" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out">
+								Solicita presupuesto
+							</a>
+						</div>
 				</div>
+			</div>
+			
+			<!-- Llamada a la Acción -->
 		</section>
+		<hr class="mb-10 border rounded-full shadow-on border-camouflage-800" />
 		<!-- Ejemplos de instalaciones -->
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			{cards.map((card) => (<Card title={card.title} description={card.description} image={card.image} iconName={card.iconName} />))}
+			{cards.map((card) => (<Card {...card} />))}
 		</section>
+		<hr class="mt-20 mb-10 border rounded-full shadow-on border-camouflage-800" />
 	</main>
 </Layout>
 
 <style>
 	
 	h1 {
-		font-family: 'Monteserrat';
+		font-family: 'Monteserrat-Bold';
+	}
+	p {
+		font-family: 'Montserrat';
+	}
+	li {
+		@apply font-bold flex items-center p-3 bg-camouflage-50 text-camouflage-900 rounded-md shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:bg-camouflage-100;
+	}
+	.icon {
+		@apply  text-2xl mr-3;
 	}
 </style>
 

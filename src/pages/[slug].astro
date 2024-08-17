@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { cards } from '../constants/cards.ts';
+import { Icon } from 'astro-icon/components'
+
+export async function getStaticPaths() {
+
+  
+  return cards.map((card) => ({
+    params: {
+      slug: card.slug,
+    },
+    props: {
+      card,
+    },
+  }));
+}
+
+const slug = Astro.params.slug;
+
+const cardInfo = cards.find((card) => card.slug === slug);
+
+if (!cardInfo) {
+  return {
+    statusCode: 404,
+    headers: {
+      'content-type': 'text/plain',
+    },
+  };
+}
+
+
+---
+<Layout title="Helios | {cardInfo.title}">
+  <main class="mt-10 p-8 text-white flex flex-col gap-2 lg:gap-8" >
+    
+    <div class="flex flex-1 flex-col gap-4">
+      <a href="/" class="text-sky-400 underline text-xl py-2"> Volver a la página principal</a>
+      <Image transition:name={cardInfo.image}  src={cardInfo.image} alt="Imagen de un sol" width={100} height={100} class="w-full max-h-screen flex rounded-xl transition-all duration-300" />
+    </div>
+    <div class="flex flex-1 flex-col gap-8 items-center" transition:name={cardInfo.slug}>
+      <span class="flex flex-row items-center gap-4  font-bold">
+        <Icon name={cardInfo.iconName} size={48} color="#0ea5e9"/>
+        <h1 class="text-3xl lg:text-5xl">{cardInfo.title}</h1>
+      </span>
+      <div set:html={cardInfo.content} />
+        
+    </div>
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    font-family: 'Monteserrat-bold';
+  }
+</style>

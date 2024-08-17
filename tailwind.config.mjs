@@ -12,6 +12,7 @@ export default {
       transparent: 'transparent',
       emerald: colors.emerald,
       indigo: colors.indigo,
+      sky: colors.sky,
       yellow: colors.yellow,
       'yellow-translucent': 'rgba(234, 179, 0, 0.30)',
 			'camouflage': {
@@ -30,10 +31,11 @@ export default {
 		},
 		extend: {
       boxShadow: {
-        'illuminate': '0 0 30px 10px rgba(234, 179, 8, 0.45)'
+        'illuminate': '0 0 30px 5px rgba(234, 179, 8, 0.45)',
+        'on': '0 0 30px 1px rgba(234, 179, 8, 0.45)'
       },
       animation: {
-        'shake': 'shake 0.5s infinite', // Duración de la animación y repetición infinita
+        'shake': 'shake 0.5s ', // Duración de la animación y repetición infinita
       },
       keyframes: {
         shake: {
