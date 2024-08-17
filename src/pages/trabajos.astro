@@ -1,9 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
 
 ---
 <Layout title="Helios | Trabajos">
-  <main class="p-4 h-[2000px]">
-    <h1>Trabajos</h1>
+  <main class="mt-10 mx-20 p-8 ">
+    <section class=" text-white py-20">
+			<div class="container mx-auto flex flex-col items-center justify-center text-center px-4">
+				<!-- Título Principal -->
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+					Energía Solar para Potenciar tu Agricultura
+				</h1>
+				<!-- Subtítulo -->
+				<p class="mt-4 text-lg md:text-xl lg:text-2xl max-w-2xl">
+					Soluciones solares innovadoras para automatización de riego, extracción de agua y cualquier necesidad eléctrica en el campo.
+				</p>
+				<!-- Llamada a la Acción -->
+				<div class="mt-8">
+					<a href="#contacto" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out">
+						Solicita una Cotización
+					</a>
+				</div>
+				
+				<!-- Imagen de fondo o ilustrativa -->
+				<div class="mt-12">
+					<Image src="/imgs/img-2.jpg" alt="Paneles solares en campo agrícola" width={200} height={200} class="w-full max-w-md mx-auto rounded-lg shadow-lg">
+				</div>
+			</div>
+		</section>
   </main>
 </Layout>
