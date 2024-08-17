@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Monteserrat';
+  src: url('/fonts/MontserratAlternates-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Monteserrat-bold';
+  src: url('/fonts/MontserratAlternates-ExtraBold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  scroll-behavior: smooth;
+}
