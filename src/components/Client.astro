@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type ClientData = {
+  iconName: string;
+  title: string;
+  author: string;
+  description: string;
+  iconBgColor: string;
+};
+interface Props {
+  data: ClientData;
+  index: number;
+}
+const { data, index } = Astro.props;
+---
+<div style={{
+  animationDelay: `${index * 0.5}s`,
+}} class="rounded-lg shadow-lg p-6 bg-white opacity-0 animate-fadeInUp transition-transform hover:scale-105 transform hover:-translate-y-1 duration-300">
+  <div class="flex items-center gap-4 mb-4">
+    <div
+      class={`rounded-full w-12 h-12 flex items-center justify-center ${data.iconBgColor} shadow-md`}
+    >
+      <Icon name={data.iconName} size={24} color="#eab308" />
+    </div>
+    <div class="text-xl font-semibold text-gray-800">{data.title}</div>
+  </div>
+  <p class="text-[#2c7b55] font-medium mb-3 text-sm tracking-wide">{data.author}</p>
+  <p class="text-gray-600 text-base leading-relaxed">
+    {data.description}
+  </p>
+</div>
+
+
+

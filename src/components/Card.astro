@@ -17,6 +17,7 @@ const { title, description, image, iconName, slug } = Astro.props;
   <Image 
     src={image}
     transition:name={image}
+    loading={"lazy"}
     alt="Imagen de un sol" 
     width={100} height={100} 
     class="w-full h-96 flex rounded-t-lg transition-all duration-300" />
@@ -38,7 +39,7 @@ const { title, description, image, iconName, slug } = Astro.props;
 
 <style>
   h2 {
-    font-family: 'Monteserrat-Bold';
+    font-family: 'Montserrat-Bold';
   }
   p {
     font-family: 'Montserrat';

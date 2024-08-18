@@ -35,8 +35,7 @@ if (!cardInfo) {
 <Layout title="Helios | {cardInfo.title}">
   <main class="mt-10 p-8 text-white flex flex-col gap-2 lg:gap-8" >
     
-    <div class="flex flex-1 flex-col gap-4">
-      <a href="/" class="text-sky-400 underline text-xl py-2"> Volver a la página principal</a>
+    <div class="flex flex-1 flex-col gap-4 mt-8">
       <Image transition:name={cardInfo.image}  src={cardInfo.image} alt="Imagen de un sol" width={100} height={100} class="w-full max-h-screen flex rounded-xl transition-all duration-300" />
     </div>
     <div class="flex flex-1 flex-col gap-8 items-center" transition:name={cardInfo.slug}>
@@ -52,6 +51,6 @@ if (!cardInfo) {
 
 <style>
   h1 {
-    font-family: 'Monteserrat-bold';
+    font-family: 'Montserrat-bold';
   }
 </style>

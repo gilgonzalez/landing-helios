@@ -1,9 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { clients } from "../constants/clients";
+import Client from "../components/Client.astro";
 
 ---
 <Layout title="Helios | Experiencias">
-  <main class="mt-10 mx-20 p-8 ">
-    <h1>Experiencias</h1>
+  <main class="mt-10 mx-auto p-6 lg:p-12 ">
+    <div class="flex flex-col w-full min-h-screen items-center">
+      <header class="text-gray-800 text-4xl md:text-5xl py-8 md:py-12 text-center">
+        <h1 class="font-extrabold text-white tracking-wide">Experiencias de nuestros clientes</h1>
+      </header>
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-8">
+        {clients.map((client, index) => (
+          <Client data={client} index={index} />
+        ))}
+      </div>
+    </div>
   </main>
 </Layout>
+
+<style>
+  h1 {
+    font-family: 'Montserrat-Bold', sans-serif;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+</style>
+
+
